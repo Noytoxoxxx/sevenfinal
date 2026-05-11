@@ -196,7 +196,7 @@ h1 span { color: var(--white); display: block; }
     background: var(--gold-yellow);
     border-color: var(--gold-yellow);
     transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.25);
 }
 
 .order-item:hover .order-logo img {
@@ -336,3 +336,16 @@ footer p {
 /* Scrollbar */
 .tab-content::-webkit-scrollbar { width: 4px; }
 .tab-content::-webkit-scrollbar-thumb { background: var(--gold-yellow); border-radius: 10px; }
+
+/* --- ACTIVATION DU SCROLL SUR MOBILE UNIQUEMENT --- */
+@media (max-width: 768px) {
+    body, html {
+        overflow-y: auto !important; /* Force le scroll vertical */
+        height: auto; /* Permet à la page de s'allonger selon le contenu */
+    }
+    
+    .main-wrapper {
+        height: auto; /* Le wrapper ne doit plus être bloqué à 100% de l'écran */
+        padding-bottom: 120px; /* Espace pour ne pas cacher le contenu derrière le footer */
+    }
+}
