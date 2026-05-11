@@ -333,21 +333,21 @@ footer p {
     text-transform: uppercase;
 }
 
-/* Scrollbar */
-.tab-content::-webkit-scrollbar { width: 4px; }
-.tab-content::-webkit-scrollbar-thumb { background: var(--gold-yellow); border-radius: 10px; }
-
-/* --- CORRECTIF MOBILE : ACTIVER SCROLL ET MARGE NAVBAR --- */
+/* --- CORRECTIF SCROLL MOBILE UNIQUEMENT --- */
 @media (max-width: 768px) {
     body, html {
-        overflow-y: auto !important; /* Force l'activation du scroll */
-        height: auto;
+        overflow-y: auto !important; /* Débloque le scroll vertical */
+        height: auto !important;     /* Permet à la page de s'étendre */
+        -webkit-overflow-scrolling: touch; /* Scroll fluide sur iPhone */
     }
 
     .main-wrapper {
-        height: auto; /* Supprime la hauteur fixe qui écrase le contenu */
-        padding-top: 130px; /* Pousse le contenu SOUS la navbar */
-        padding-bottom: 120px; /* Espace pour le footer */
-        justify-content: flex-start; /* Aligne le contenu en haut */
+        height: auto !important;     /* Empêche le contenu d'être écrasé */
+        min-height: 100vh;
+        padding-top: 120px;          /* Évite que le haut soit caché par la nav */
     }
 }
+
+/* Scrollbar */
+.tab-content::-webkit-scrollbar { width: 4px; }
+.tab-content::-webkit-scrollbar-thumb { background: var(--gold-yellow); border-radius: 10px; }
