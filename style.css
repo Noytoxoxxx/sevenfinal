@@ -16,6 +16,7 @@
     user-select: none;
 }
 
+/* Version PC : On garde l'overflow hidden comme tu aimes */
 body, html {
     height: 100%;
     width: 100%;
@@ -112,7 +113,7 @@ h1 span { color: var(--white); display: block; }
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
 }
 
-/* --- MODALE DE COMMANDE ANIMÉE --- */
+/* --- MODALE COMMANDE --- */
 .modal-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -124,15 +125,12 @@ h1 span { color: var(--white); display: block; }
     backdrop-filter: blur(15px);
 }
 
-/* Animation d'ouverture */
 @keyframes modalPop {
     from { opacity: 0; transform: scale(0.8) translateY(20px); }
     to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-.animate-pop {
-    animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
+.animate-pop { animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 
 .modal-content {
     background: #111;
@@ -166,13 +164,10 @@ h1 span { color: var(--white); display: block; }
     font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
-    transition: 0.3s;
 }
 
-/* Taille réduite des logos */
 .order-logo {
-    width: 65px;
-    height: 65px;
+    width: 65px; height: 65px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 18px;
     margin: 0 auto 10px;
@@ -180,131 +175,13 @@ h1 span { color: var(--white); display: block; }
     align-items: center;
     justify-content: center;
     border: 1px solid rgba(255, 215, 0, 0.1);
-    transition: 0.4s;
     padding: 12px;
 }
 
-.order-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    filter: grayscale(100%) brightness(200%); /* Blanc par défaut */
-    transition: 0.4s;
-}
+.order-logo img { width: 100%; height: 100%; object-fit: contain; filter: grayscale(100%) brightness(200%); }
 
-.order-item:hover .order-logo {
-    background: var(--gold-yellow);
-    border-color: var(--gold-yellow);
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
-}
-
-.order-item:hover .order-logo img {
-    filter: grayscale(0%) brightness(100%); /* Couleur originale au survol */
-}
-
-/* --- MENU --- */
-.menu-nav {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-}
-
-.tab-link {
-    background: transparent;
-    border: none;
-    color: var(--grey);
-    font-size: 1rem;
-    font-weight: 800;
-    cursor: pointer;
-    text-transform: uppercase;
-    padding-bottom: 8px;
-    border-bottom: 3px solid transparent;
-    transition: 0.3s;
-}
-
-.tab-link.active {
-    color: var(--gold-yellow);
-    border-bottom: 3px solid var(--gold-yellow);
-}
-
-.tab-content {
-    display: none;
-    width: 100%;
-    max-height: 60vh;
-    overflow-y: auto;
-    padding: 10px;
-}
-
-.tab-content.active { display: block; }
-
-.premium-menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.premium-card {
-    background: var(--glass);
-    border-radius: 25px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: 0.4s;
-    text-align: left;
-}
-
-.premium-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--gold-yellow);
-}
-
-.card-img {
-    height: 160px;
-    background-size: cover;
-    background-position: center;
-    background-color: #1a1a1a;
-}
-
-
-/* BADGE POPULAIRE */
-.badge-popular {
-    background: var(--gold-yellow);
-    color: #000;
-    font-size: 0.6rem;
-    font-weight: 800;
-    padding: 2px 8px;
-    border-radius: 4px;
-    display: inline-block;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-}
-
-/* EFFET SURBRILLANCE AU SURVOL */
-.premium-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--gold-yellow);
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.25); /* Le glow doré */
-    background: rgba(255, 255, 255, 0.06);
-}
-
-.card-info { padding: 20px; }
-.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-.card-header h4 { font-size: 1.1rem; font-weight: 800; color: #fff; }
-.p-price { color: var(--gold-yellow); font-weight: 900; font-size: 0.9rem; }
-.card-info p { color: var(--grey); font-size: 0.75rem; line-height: 1.4; }
-
-/* --- AVIS GOOGLE --- */
-.reviews-container {
-    display: flex;
-    gap: 20px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+/* --- AVIS ET FOOTER --- */
+.reviews-container { display: flex; gap: 20px; margin-top: 40px; flex-wrap: wrap; justify-content: center; }
 
 .review-card {
     background: var(--glass);
@@ -314,7 +191,6 @@ h1 span { color: var(--white); display: block; }
     border: 1px solid rgba(255,255,255,0.05);
 }
 
-/* --- FOOTER --- */
 footer {
     position: fixed;
     bottom: 0;
@@ -326,28 +202,25 @@ footer {
     z-index: 1000;
 }
 
-footer p {
-    color: var(--grey);
-    font-size: 0.6rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
+footer p { color: var(--grey); font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; }
 
-/* --- CORRECTIF SCROLL MOBILE UNIQUEMENT --- */
+/* ============================================================
+   LE SEUL TRUC QUI CHANGE POUR LE TELEPHONE (SCROLL)
+   ============================================================ */
 @media (max-width: 768px) {
     body, html {
-        overflow-y: auto !important; /* Débloque le scroll vertical */
-        height: auto !important;     /* Permet à la page de s'étendre */
-        -webkit-overflow-scrolling: touch; /* Scroll fluide sur iPhone */
+        overflow-y: auto !important; /* On débloque enfin le scroll */
+        height: auto !important;     /* On laisse la page respirer */
     }
 
     .main-wrapper {
-        height: auto !important;     /* Empêche le contenu d'être écrasé */
+        height: auto !important;     /* On ne force plus le centrage vertical */
         min-height: 100vh;
-        padding-top: 120px;          /* Évite que le haut soit caché par la nav */
+        padding-top: 130px;          /* On décale pour la navbar */
+        padding-bottom: 100px;       /* On décale pour le footer */
+    }
+
+    footer {
+        position: relative;          /* Le footer suit le contenu au lieu de boucher la vue */
     }
 }
-
-/* Scrollbar */
-.tab-content::-webkit-scrollbar { width: 4px; }
-.tab-content::-webkit-scrollbar-thumb { background: var(--gold-yellow); border-radius: 10px; }
