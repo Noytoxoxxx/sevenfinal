@@ -196,7 +196,7 @@ h1 span { color: var(--white); display: block; }
     background: var(--gold-yellow);
     border-color: var(--gold-yellow);
     transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.25);
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
 }
 
 .order-item:hover .order-logo img {
@@ -337,17 +337,17 @@ footer p {
 .tab-content::-webkit-scrollbar { width: 4px; }
 .tab-content::-webkit-scrollbar-thumb { background: var(--gold-yellow); border-radius: 10px; }
 
-/* --- CORRECTIF MOBILE : SCROLL + MARGE NAVBAR --- */
+/* --- CORRECTIF MOBILE : ACTIVER SCROLL ET MARGE NAVBAR --- */
 @media (max-width: 768px) {
     body, html {
-        overflow-y: auto !important; /* Active le scroll */
+        overflow-y: auto !important; /* Force l'activation du scroll */
         height: auto;
     }
-    
+
     .main-wrapper {
-        height: auto; 
-        padding-top: 120px; /* Ajoute la marge pour ne plus être caché par la navbar */
-        padding-bottom: 100px;
-        justify-content: flex-start; /* Aligne le contenu vers le haut pour respecter la marge */
+        height: auto; /* Supprime la hauteur fixe qui écrase le contenu */
+        padding-top: 130px; /* Pousse le contenu SOUS la navbar */
+        padding-bottom: 120px; /* Espace pour le footer */
+        justify-content: flex-start; /* Aligne le contenu en haut */
     }
 }
