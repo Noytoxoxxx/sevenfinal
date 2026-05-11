@@ -337,15 +337,17 @@ footer p {
 .tab-content::-webkit-scrollbar { width: 4px; }
 .tab-content::-webkit-scrollbar-thumb { background: var(--gold-yellow); border-radius: 10px; }
 
-/* --- ACTIVATION DU SCROLL SUR MOBILE UNIQUEMENT --- */
+/* --- CORRECTIF MOBILE : SCROLL + MARGE NAVBAR --- */
 @media (max-width: 768px) {
     body, html {
-        overflow-y: auto !important; /* Force le scroll vertical */
-        height: auto; /* Permet à la page de s'allonger selon le contenu */
+        overflow-y: auto !important; /* Active le scroll */
+        height: auto;
     }
     
     .main-wrapper {
-        height: auto; /* Le wrapper ne doit plus être bloqué à 100% de l'écran */
-        padding-bottom: 120px; /* Espace pour ne pas cacher le contenu derrière le footer */
+        height: auto; 
+        padding-top: 120px; /* Ajoute la marge pour ne plus être caché par la navbar */
+        padding-bottom: 100px;
+        justify-content: flex-start; /* Aligne le contenu vers le haut pour respecter la marge */
     }
 }
